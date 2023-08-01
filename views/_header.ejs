@@ -3,15 +3,15 @@
     <ul id="header-nav">
         <li id="heading"><a href="/">ERS</a></li>
         <div id="links">
-        <!-- <% if(locals.user){%> -->
+        <% if(locals.user){%>
             <li><%= locals.user.name%></li>
             <li>
                 <a href="/signout">Sign Out</a>
             </li>
-        <!-- <% }else{%> -->
+        <% }else{%>
             <li><a href="/">Sign In</a></li>
             <li><a href="/signup">Sign Up</a></li>
-        <!-- <%}%>     -->
+        <%}%>    
         </div>
     </ul>
 </header>
