@@ -12,6 +12,7 @@ const reviewSchema = new mongoose.Schema({
     },
     feedback:{
         type: String,
+        default: ''
     }
 },{
     timestamps: true

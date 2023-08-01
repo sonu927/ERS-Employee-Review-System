@@ -1,11 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Working</h1>
-</body>
-</html>
+<%if(locals.user.isAdmin){%>
+    <form action="/createReview" method="post">
+        <label for="recipient">Recipient:</label>
+        <select name="recipient" id="recipient">
+            <% for(user of all_users){%>
+                <option value="<%= user.id%>"><%= user.name%></option>    
+            <%} %>
+        </select>
+    
+        <label for="reviewer">Reviewer:</label>
+        <select name="reviewer" id="reviewer">
+            <% for(user of all_users){%>
+                <option value="<%= user.id%>"><%= user.name%></option>    
+            <%} %>
+        </select>
+    
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="give-review">
+        <div>
+            <h3>Give Review: </h3>
+        </div>
+        <form action="/adminReview" method="post">
+            <select name="recipient" id="recipient">
+                <% for(user of all_users){%>
+                    <option value="<%= user.id%>"><%= user.name%></option>    
+                <%} %>
+            </select>
+            <textarea name="feedback" id="feedback" cols="30" rows="3" placeholder="Write feedback.."></textarea>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div id="all-reviews-list">
+        <h2>Performance Reviews</h2>
+        <% for(review of allReviews){%>
+            <div>
+                <h5>From: <%= review.from_user.name%></h5>
+            </div>    
+            <div>
+                <p><%= review.feedback%></p>
+            </div>
+            <div>
+                <h5>To: <%= review.to_user.name%></h5>
+            </div>
+        <%} %>
+        
+    </div>
+<%}else{%>
+    
+    <h2>Performance reviews require your feedback</h2>
+    <div id="feedback-container">
+        <%for(feedback of curr_user.to_review){%>
+            <div>
+                <div>
+                    <h4>To: <%= feedback.to_user.name%></h4>
+                </div>
+                <div>
+                    <form action="/addFeedback/<%= feedback.id%>" method="post">
+                        <textarea name="feedback" id="" cols="30" rows="3" placeholder="FeedBack..."></textarea>
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>    
+        <%} %>
+    </div>
+    
+<%} %>
+
