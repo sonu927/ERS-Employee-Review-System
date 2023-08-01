@@ -16,5 +16,11 @@ router.get('/signout',homeController.signout);
 router.post('/createReview',adminController.createReview);
 router.post('/addFeedback/:id',homeController.addFeedback);
 router.post('/adminReview',adminController.adminReview);
+router.post('/editReview/:id',adminController.editFeedback);
+router.get('/viewemployees',adminController.employeeView);
+
+router.post('/updateEmployee/:id',adminController.updateEmployee);
+router.get('/delete/:id',adminController.delete);
+router.get('/toggleAdmin/:id',adminController.toggleAdmin);
 
 module.exports = router;

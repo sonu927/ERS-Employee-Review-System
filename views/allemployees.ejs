@@ -1,0 +1,32 @@
+<div id="all-employees-list">
+    <div>
+        <h1>All Employees</h1>
+    </div>
+
+    <% for(user of all_user){%>
+        <div>
+            <div>
+                <form action="/updateEmployee/<%= user.id%>" method="post">
+                    <input type="text" name="name" value="<%= user.name%>">
+                    <input type="email" name="email" value="<%= user.email%>">
+                    <input type="text" name="password" value="<%= user.password%>">
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+            
+            <div>
+                <a href="/delete/<%= user.id%>">Delete</a>
+            </div>
+            <div>
+                <a href="/toggleAdmin/<%= user.id%>">
+                    <% if(user.isAdmin){%>
+                        Remove from Admin    
+                    <%}else{%>
+                        Add as Admin    
+                    <%} %>
+                </a>
+            </div>
+        </div>    
+        <hr>
+    <%} %>
+</div>

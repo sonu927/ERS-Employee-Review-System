@@ -1,9 +1,12 @@
 <header>
 
     <ul id="header-nav">
-        <li id="heading"><a href="/">ERS</a></li>
+        <li id="heading"><a href="/home">ERS</a></li>
         <div id="links">
         <% if(locals.user){%>
+            <% if(locals.user.isAdmin){%>
+                <li><a href="/viewemployees">View Employees</a></li>    
+            <%} %>
             <li><%= locals.user.name%></li>
             <li>
                 <a href="/signout">Sign Out</a>

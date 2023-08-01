@@ -36,13 +36,21 @@
         <h2>Performance Reviews</h2>
         <% for(review of allReviews){%>
             <div>
-                <h5>From: <%= review.from_user.name%></h5>
-            </div>    
-            <div>
-                <p><%= review.feedback%></p>
-            </div>
-            <div>
-                <h5>To: <%= review.to_user.name%></h5>
+                <div>
+                    <h5>From: <%= review.from_user.name%></h5>
+                </div>    
+                <div>
+                    <p><%= review.feedback%></p>
+                </div>
+                <div>
+                    <h5>To: <%= review.to_user.name%></h5>
+                </div>
+                <div>
+                    <form action="/editReview/<%= review.id%>" method="post">
+                        <textarea name="feedback" id="feedback" cols="30" rows="3" placeholder="Edit feedback.."></textarea>
+                        <input type="submit">
+                    </form>
+                </div>
             </div>
         <%} %>
         
