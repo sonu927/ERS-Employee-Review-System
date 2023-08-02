@@ -71,3 +71,14 @@
     text-decoration: none;
     color: white;
 }
+
+#addEmployee{
+    padding: 1%;
+    background-color: darkgreen;
+}
+
+#addEmployee a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

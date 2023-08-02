@@ -10,6 +10,7 @@ module.exports.createReview = async function(req,res){
     let reviewer = await User.findById(req.body.reviewer);
     reviewer.to_review.push(review);
     reviewer.save();
+    req.flash('success','Review Assigned');
     return res.redirect('back');
 }
 
@@ -19,6 +20,7 @@ module.exports.adminReview = async function(req,res){
         to_user: req.body.recipient,
         feedback: req.body.feedback
     });
+    req.flash('success','Review Added Successfully');
     return res.redirect('back');
 }
 
@@ -26,6 +28,7 @@ module.exports.editFeedback = async function(req,res){
     const review = await Review.findById(req.params.id);
     review.feedback = req.body.feedback;
     review.save();
+    req.flash('success','Feedback Updated Successfully');
     return res.redirect('back');
 }
 
@@ -43,6 +46,7 @@ module.exports.updateEmployee = async function(req,res){
     employee.email = req.body.email;
     employee.password = req.body.password;
     employee.save();
+    req.flash('success','Employee Updated Successfully');
     return res.redirect('back');
 }
 
@@ -54,6 +58,7 @@ module.exports.delete = async function(req,res){
     });
 
     employee.deleteOne();
+    req.flash('success','Employee Deleted Successfully');
     return res.redirect('back');
 }
 

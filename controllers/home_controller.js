@@ -47,8 +47,8 @@ module.exports.signup = function(req,res){
 }
 
 module.exports.createSession = async function(req,res){
-    
-    return res.redirect('/home');
+    req.flash('success','Logged Successfully')
+    return res.redirect('/home');   
 }
 
 module.exports.create = function(req,res){
@@ -59,6 +59,10 @@ module.exports.create = function(req,res){
     User.findOne({email: req.body.email}).then((user)=>{
         if(!user){
             User.create(req.body);
+            req.flash('success','Registered Successfully')
+            if(req.user.isAdmin){
+                return res.redirect('/viewemployees');
+            }
             return res.redirect('/');
         }else{
             return res.redirect('back');
@@ -75,6 +79,7 @@ module.exports.signout = function(req,res){
           console.log('Error in logging out:', err);
           return res.redirect('/'); // Handle the error by redirecting to the homepage or an error page
         }
+        req.flash('success','Logged Out Successfully')
         return res.redirect('/');
     });
 }
@@ -87,6 +92,7 @@ module.exports.addFeedback = async function(req,res){
         review.save();
         user.to_review.pull(review._id);
         user.save();
+        req.flash('success','Review Submotted Successfully')
         return res.redirect('back');
 
     }catch(err){
