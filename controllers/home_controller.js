@@ -1,10 +1,12 @@
 const User = require('../models/users');
 const Review = require('../models/reviews');
 
+//For landing page which is sign in page
 module.exports.home = function(req,res){
     return res.render('user_signin');
 }
 
+//When a user is signed in
 module.exports.dashboard = async function(req,res){
     const all_users = await User.find({ _id: {$ne: req.user.id}});
     const curr_user = await User.findById(req.user.id)
@@ -42,15 +44,20 @@ module.exports.dashboard = async function(req,res){
     });
 }
 
+
+//render sign up page
 module.exports.signup = function(req,res){
     return res.render('user_signup');
 }
 
+//When user is signed in
 module.exports.createSession = async function(req,res){
     req.flash('success','Logged Successfully')
     return res.redirect('/home');   
 }
 
+
+//For creating a Employee
 module.exports.create = function(req,res){
     if(req.body.password != req.body.confirm_password){
         return res.redirect('back');
@@ -73,6 +80,8 @@ module.exports.create = function(req,res){
     });
 }
 
+
+//for logging out
 module.exports.signout = function(req,res){
     req.logout(function(err) {
         if (err) {
@@ -84,6 +93,7 @@ module.exports.signout = function(req,res){
     });
 }
 
+//to add feedback about performance
 module.exports.addFeedback = async function(req,res){
     try{
         const review = await Review.findById(req.params.id);

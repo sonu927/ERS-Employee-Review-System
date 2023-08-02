@@ -1,6 +1,8 @@
 const User = require('../models/users');
 const Review = require('../models/reviews');
 
+
+//For assigning review of a employee to other employee 
 module.exports.createReview = async function(req,res){
     const review = await Review.create({
         from_user: req.body.reviewer,
@@ -14,6 +16,7 @@ module.exports.createReview = async function(req,res){
     return res.redirect('back');
 }
 
+//For admin reviewing a employee
 module.exports.adminReview = async function(req,res){
     const review = await Review.create({
         from_user: req.user.id,
@@ -24,6 +27,8 @@ module.exports.adminReview = async function(req,res){
     return res.redirect('back');
 }
 
+
+//For editing a review only for admin
 module.exports.editFeedback = async function(req,res){
     const review = await Review.findById(req.params.id);
     review.feedback = req.body.feedback;
@@ -32,6 +37,7 @@ module.exports.editFeedback = async function(req,res){
     return res.redirect('back');
 }
 
+//For opening List of all employees
 module.exports.employeeView = async function(req,res){
     const all_user = await User.find({_id: {$ne: req.user.id}});
 
@@ -40,6 +46,7 @@ module.exports.employeeView = async function(req,res){
     });
 }
 
+//For updating a employee
 module.exports.updateEmployee = async function(req,res){
     const employee = await User.findById(req.params.id);
     employee.name = req.body.name;
@@ -50,6 +57,7 @@ module.exports.updateEmployee = async function(req,res){
     return res.redirect('back');
 }
 
+//For deleting a employee
 module.exports.delete = async function(req,res){
     const employee = await User.findById(req.params.id);
 
@@ -62,6 +70,8 @@ module.exports.delete = async function(req,res){
     return res.redirect('back');
 }
 
+
+//For setting a employee as a admin or remove from admin
 module.exports.toggleAdmin = async function(req,res){
     const employee = await User.findById(req.params.id);
 
