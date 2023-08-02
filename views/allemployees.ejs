@@ -1,32 +1,51 @@
+<link rel="stylesheet" href="/css/allemployees.css">
+
 <div id="all-employees-list">
     <div>
         <h1>All Employees</h1>
     </div>
 
-    <% for(user of all_user){%>
-        <div>
+    <div id="employees-list">
+        <div id="header">
             <div>
-                <form action="/updateEmployee/<%= user.id%>" method="post">
-                    <input type="text" name="name" value="<%= user.name%>">
-                    <input type="email" name="email" value="<%= user.email%>">
-                    <input type="text" name="password" value="<%= user.password%>">
-                    <input type="submit" value="Update">
-                </form>
-            </div>
-            
-            <div>
-                <a href="/delete/<%= user.id%>">Delete</a>
+                Name
             </div>
             <div>
-                <a href="/toggleAdmin/<%= user.id%>">
-                    <% if(user.isAdmin){%>
-                        Remove from Admin    
-                    <%}else{%>
-                        Add as Admin    
-                    <%} %>
-                </a>
+                Email
             </div>
-        </div>    
-        <hr>
-    <%} %>
+            <div>Password</div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        
+        <% for(user of all_user){%>
+            <div id="single-employee">
+                <div id="form-container">
+                    <form action="/updateEmployee/<%= user.id%>" method="post">
+                        <input type="text" name="name" value="<%= user.name%>">
+                        <input type="email" name="email" value="<%= user.email%>">
+                        <input type="text" name="password" value="<%= user.password%>">
+                        <input type="submit" value="Update">
+                    </form>
+                </div>
+                
+                <div id="delete-btn">
+                    <a href="/delete/<%= user.id%>">Delete</a>
+                </div>
+                <div id="admin-btn">
+                    <a href="/toggleAdmin/<%= user.id%>">
+                        <% if(user.isAdmin){%>
+                            Remove from Admin    
+                        <%}else{%>
+                            Add as Admin    
+                        <%} %>
+                    </a>
+                </div>
+            </div>    
+        <%} %>
+    </div>
+    
 </div>

@@ -1,0 +1,52 @@
+#siginin-container{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: fit-content;
+    margin-top: 4em;
+}
+
+#siginin-container div{
+    width: 50%; 
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(167, 216, 69);
+    outline-offset: 3px;
+    outline-style: groove;
+    outline-width: 5px;
+    outline-color: white;
+    
+}
+
+#siginin-container div form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    margin-left: 24%;
+    
+}
+
+#siginin-container div form input{
+    height: 20%;
+    width: 70%;
+    border: none;
+    padding: 2%;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+
+#siginin-container div form input[type="submit"]{
+    width: 30%;
+    border: none;
+    border-radius: 0px;
+    background-color: rgb(134, 134, 16);
+    color: white;
+    font-weight: bold;
+}

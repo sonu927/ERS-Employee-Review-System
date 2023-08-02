@@ -1,0 +1,171 @@
+/*------For Admin View-------*/
+
+#admin-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#assign-N-give-review{
+    display: flex;
+   
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+}
+
+#assign-review{
+    width: 40%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 1%;
+    background-color: rgb(167, 216, 69);
+    border-radius: 25px;
+}
+
+
+#assign-N-give-review form{
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#assign-N-give-review form select{
+    width: 15%;
+    height: 30px;
+    border: none;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+#give-review{
+    width: 40%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 1%;
+    background-color: rgb(167, 216, 69);
+    border-radius: 25px;
+}
+
+#assign-N-give-review form textarea{
+    border: none;
+    padding: 2%;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#assign-N-give-review form input[type="submit"]{
+    padding: 2%;
+    border: none;
+    background-color: darkgreen;
+    color: white;
+    font-weight: bold;
+}
+
+#all-reviews-list{
+    width: 60%;
+    padding: 2%;
+    text-align: center;
+}
+
+#all-reviews-list h2{
+    text-decoration: underline;
+}
+
+#single-review{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black;
+    background-color: rgb(167, 216, 69);
+    border-radius: 25px;
+    padding: 1%;
+    margin-bottom: 1em;
+}
+
+#single-review form{
+    width: 100%
+}
+
+#single-review form textarea{
+    border: none;
+    padding: 2%;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#single-review form input[type="submit"]{
+    padding: 2%;
+    border: none;
+    background-color: darkgreen;
+    color: white;
+    font-weight: bold;
+}
+
+#single-review-info{
+    font-size: large;
+}
+
+#single-review-info div{
+    text-align: left;
+}
+#single-feedback{
+    text-align: right;
+    margin-left: 20px;
+}
+#single-feedback h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*------For Employee View-------*/
+
+#employee-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#feedback-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    width: 40%;
+    align-items: center;
+    background: rgb(7, 126, 7);
+    box-shadow: 0px 0px 7px 3px rgb(7, 126, 7);
+    border-radius: 25px;
+}
+
+#single-feedback-container{
+    width: 70%;
+    padding: 2%;
+    background-color: rgb(167, 216, 69);
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 20px;
+}
+#single-feedback-container form{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#single-feedback-container form textarea {
+    border: none;
+    padding: 1%;
+}
+
+#single-feedback-container form input[type="submit"]{
+    padding: 1.5%;
+    background-color: rgb(28, 186, 28);
+    border: none;
+    width: 20%;
+}
+

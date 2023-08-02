@@ -16,7 +16,7 @@ module.exports.dashboard = async function(req,res){
         ]
     });
     //console.log(curr_user);
-    const allReviews = await Review.find({})
+    const allReviews = await Review.find({feedback: {$ne: ""}})
     .populate([
         {
             path: 'from_user'

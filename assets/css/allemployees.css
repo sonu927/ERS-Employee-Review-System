@@ -1,0 +1,73 @@
+#all-employees-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#employees-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+#header{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    font-weight: bold;
+    font-size: large;
+    text-decoration: underline;
+}
+
+#single-employee{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#form-container{
+    width: 60%;
+}
+#single-employee form{
+    width: 100%;
+}
+
+#single-employee form input{
+    padding: 1%;
+    border-radius: 10px;
+    border: none;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#single-employee form input[type="submit"]{
+    background-color: rgb(26, 165, 26);
+    color: white;
+}
+
+#single-employee div{
+    padding: 1%;
+}
+
+#delete-btn{
+    height: 15px;
+    background-color: rgb(216, 16, 16);
+    border-radius: 10px;
+}
+#delete-btn a{
+    text-decoration: none;
+    color: white;
+
+}
+
+#admin-btn{
+    height: 15px;
+    background-color: rgb(156, 181, 16);
+    border-radius: 10px;
+}
+
+#admin-btn a{
+    text-decoration: none;
+    color: white;
+}
