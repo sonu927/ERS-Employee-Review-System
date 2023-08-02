@@ -25,10 +25,20 @@ module.exports.dashboard = async function(req,res){
             path: 'to_user'
         }
     ]);
+    const reviews_for_user = await Review.find({to_user: req.user.id})
+    .populate([
+        {
+            path: 'from_user'
+        },
+        {
+            path: 'to_user'
+        }
+    ]);
     return res.render('home',{
         all_users: all_users,
         curr_user: curr_user,
-        allReviews: allReviews
+        allReviews: allReviews,
+        reviews: reviews_for_user
     });
 }
 

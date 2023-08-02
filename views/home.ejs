@@ -77,22 +77,42 @@
     
 <%}else{%>
     <div id="employee-container"> 
-        <h2>Performance reviews require your feedback</h2>
-        <div id="feedback-container">
-            <%for(feedback of curr_user.to_review){%>
-                <div id="single-feedback-container">
-                    <div>
-                        <h4>To: <%= feedback.to_user.name%></h4>
-                    </div>
-                    <div>
-                        <form action="/addFeedback/<%= feedback.id%>" method="post">
-                            <textarea name="feedback" id="" cols="30" rows="3" placeholder="FeedBack..."></textarea>
-                            <input type="submit">
-                        </form>
-                    </div>
-                </div>    
-            <%} %>
+        <div>
+            <h2>Performance reviews require your feedback</h2>
+            <div id="feedback-container">
+                <%for(feedback of curr_user.to_review){%>
+                    <div id="single-feedback-container">
+                        <div>
+                            <h4>To: <%= feedback.to_user.name%></h4>
+                        </div>
+                        <div>
+                            <form action="/addFeedback/<%= feedback.id%>" method="post">
+                                <textarea name="feedback" id="" cols="30" rows="3" placeholder="FeedBack..."></textarea>
+                                <input type="submit">
+                            </form>
+                        </div>
+                    </div>    
+                <%} %>
+            </div>
         </div>
+        <div>
+            <h2>My Performance Reviews</h2>
+            <div id="my-review-container">
+                <% for(review of reviews){%>
+                    <div id="my-single-review">
+                        <div>
+                            From: <%= review.from_user.name%>
+                        </div>
+                        <hr style="border-color: black;">
+                        <div>
+                            <b><%= review.feedback%></b>
+                        </div>
+                    </div>
+                <%} %>
+            </div>
+            
+        </div>
+        
     </div>
 <%} %>
 
